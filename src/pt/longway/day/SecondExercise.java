@@ -1,4 +1,4 @@
-package pt.longway.secondday;
+package pt.longway.day;
 
 import pt.longway.AdventBase;
 import pt.longway.util.AdventUtil;

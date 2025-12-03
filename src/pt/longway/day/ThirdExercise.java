@@ -1,4 +1,4 @@
-package pt.longway.thirdday;
+package pt.longway.day;
 
 import java.math.BigInteger;
 
