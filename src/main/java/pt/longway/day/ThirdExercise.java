@@ -13,9 +13,8 @@ public class ThirdExercise extends AdventBase {
 
 	@Override
 	public void solveFirstPart() {
-		String fileContent = super.readFileToString();
 
-		String[] banks = fileContent.split("\r\n");
+		String[] banks = super.fileContent.split("\r\n");
 		int result = 0;
 		for (String bank : banks) {
 			result += this.largestJoltage(bank);
@@ -40,9 +39,8 @@ public class ThirdExercise extends AdventBase {
 
 	@Override
 	public void solveSecondPart() {
-		String fileContent = super.readFileToString();
 
-		String[] banks = fileContent.split("\r\n");
+		String[] banks = super.fileContent.split("\r\n");
 		BigInteger result = BigInteger.ZERO;
 		for (String bank : banks) {
 			result = result.add(BigInteger.valueOf(this.largestJoltageTwelveDigits(bank)));

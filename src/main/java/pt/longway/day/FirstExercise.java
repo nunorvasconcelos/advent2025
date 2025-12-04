@@ -11,9 +11,8 @@ public class FirstExercise extends AdventBase {
 
 	@Override
 	public void solveFirstPart() {
-		String fileContent = super.readFileToString();
 
-		String[] lines = fileContent.split("\r\n");
+		String[] lines = super.fileContent.split("\r\n");
 		int dial = 50;
 		int minDial = 0;
 		int maxDial = 99;
@@ -53,9 +52,7 @@ public class FirstExercise extends AdventBase {
 	@Override
 	public void solveSecondPart() {
 
-		String fileContent = super.readFileToString();
-
-		String[] lines = fileContent.split("\r\n");
+		String[] lines = super.fileContent.split("\r\n");
 		int dial = 50;
 		int minDial = 0;
 		int maxDial = 99;

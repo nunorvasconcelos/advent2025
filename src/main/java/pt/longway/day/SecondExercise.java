@@ -11,9 +11,7 @@ public class SecondExercise extends AdventBase {
 
 	@Override
 	public void solveFirstPart() {
-		String fileContent = super.readFileToString();
-
-		String[] ranges = fileContent.split(",");
+		String[] ranges = super.fileContent.split(",");
 
 		long result = 0;
 
@@ -48,9 +46,8 @@ public class SecondExercise extends AdventBase {
 
 	@Override
 	public void solveSecondPart() {
-		String fileContent = super.readFileToString();
 
-		String[] ranges = fileContent.split(",");
+		String[] ranges = super.fileContent.split(",");
 
 		long result = 0;
 
