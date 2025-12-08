@@ -102,6 +102,7 @@ public class SeventhExercise extends AdventBase {
 	/*
 	 * Auxiliary function to print the whole input changed to help debug.
 	 */
+	@SuppressWarnings("unused")
 	private void printDiagram(String[][] diagram) {
 		for (int i = 0; i < diagram.length; i++) {
 			for (int j = 0; j < diagram[0].length; j++) {
