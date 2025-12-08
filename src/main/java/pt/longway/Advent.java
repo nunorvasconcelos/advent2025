@@ -4,6 +4,7 @@ import pt.longway.day.FifthExercise;
 import pt.longway.day.FirstExercise;
 import pt.longway.day.FourthExercise;
 import pt.longway.day.SecondExercise;
+import pt.longway.day.SixthExercise;
 import pt.longway.day.ThirdExercise;
 import pt.longway.util.AdventUtil;
 
@@ -31,6 +32,10 @@ public class Advent {
 		FifthExercise fifth = new FifthExercise(util, "FifthExerciseInput.txt");
 		fifth.solveFirstPart();
 		fifth.solveSecondPart();
+		
+		SixthExercise sixth = new SixthExercise(util, "SixthExerciseInput.txt");
+		sixth.solveFirstPart();
+		sixth.solveSecondPart();
 		
 	}
 
