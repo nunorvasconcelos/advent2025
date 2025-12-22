@@ -13,6 +13,7 @@ import pt.longway.util.AdventUtil;
 public class EighthExercise extends AdventBase {
 
 	private final int NUMBER_OF_LARGEST_CIRCUITS = 3;
+	private final int NUMBER_OF_CONNECTIONS = 1000;
 
 	public EighthExercise(AdventUtil util, String fileLocation) {
 		super(util, fileLocation);
@@ -41,8 +42,7 @@ public class EighthExercise extends AdventBase {
 
 		int i = 0;
 		List<Set<JunctionBox>> connections = new ArrayList<>();
-		int maxConnections = (junctionBoxList.size() / 2);
-		while (i < 1000) {
+		while (i < NUMBER_OF_CONNECTIONS) {
 			JunctionBox nextShortestConnection = null;
 			double minDistance = Double.MAX_VALUE;
 
@@ -54,7 +54,7 @@ public class EighthExercise extends AdventBase {
 			}
 
 			addJunctionBoxConnection(connections, nextShortestConnection);
-			
+
 			i++;
 
 		}
@@ -62,14 +62,11 @@ public class EighthExercise extends AdventBase {
 		connections.sort(Comparator.comparingInt(Set::size));
 		connections = connections.reversed();
 
-//		this.printAllConnections(connections);
-
 		long result = 1L;
 		for (int j = 0; j < NUMBER_OF_LARGEST_CIRCUITS && j < connections.size(); j++) {
 			result *= connections.get(j).size();
 		}
 		System.out.println("Eighth Exercise - First Part - " + result);
-// 10925 too low
 	}
 
 	private void printAllConnections(List<Set<JunctionBox>> connections) {
@@ -121,7 +118,43 @@ public class EighthExercise extends AdventBase {
 
 	@Override
 	public void solveSecondPart() {
-		long result = 0L;
+		int result = 0;
+		String[] lines = fileContent.split("\r\n");
+		List<JunctionBox> junctionBoxList = new ArrayList<>();
+
+		// Transform input into List of JunctionBox
+		for (String line : lines) {
+			String[] junctionBoxCoordinates = line.split(",");
+			junctionBoxList.add(new JunctionBox(Integer.valueOf(junctionBoxCoordinates[0]),
+					Integer.valueOf(junctionBoxCoordinates[1]), Integer.valueOf(junctionBoxCoordinates[2])));
+		}
+
+		// Calculate every distance between everybox
+		for (int i = 0; i < junctionBoxList.size(); i++) {
+			JunctionBox currJunctionBox = junctionBoxList.get(i);
+			for (int j = i + 1; j < junctionBoxList.size(); j++) {
+				JunctionBox otherJunctionBox = junctionBoxList.get(j);
+				currJunctionBox.distance(otherJunctionBox);
+			}
+		}
+
+		List<Set<JunctionBox>> connections = new ArrayList<>();
+		do {
+			JunctionBox nextShortestConnection = null;
+			double minDistance = Double.MAX_VALUE;
+
+			for (JunctionBox currJunctionBox : junctionBoxList) {
+				if (currJunctionBox.getShortestDistance() < minDistance) {
+					minDistance = currJunctionBox.getShortestDistance();
+					nextShortestConnection = currJunctionBox;
+				}
+			}
+			
+			result = nextShortestConnection.getX() * nextShortestConnection.getShortestDistanceJunctionBox().getX();
+
+			addJunctionBoxConnection(connections, nextShortestConnection);
+
+		} while (connections.get(0).size() != NUMBER_OF_CONNECTIONS);
 
 		System.out.println("Eighth Exercise - Second Part - " + result);
 	}

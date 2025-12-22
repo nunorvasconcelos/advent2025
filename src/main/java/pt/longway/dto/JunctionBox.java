@@ -115,4 +115,8 @@ public class JunctionBox {
 		return shortestDistance;
 	}
 
+	public int getX() {
+		return x;
+	}
+
 }
