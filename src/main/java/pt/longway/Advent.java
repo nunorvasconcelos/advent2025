@@ -43,7 +43,7 @@ public class Advent {
 		seventh.solveFirstPart();
 		seventh.solveSecondPart();
 
-		EighthExercise eighth = new EighthExercise(util, "EighthTestInput.txt");
+		EighthExercise eighth = new EighthExercise(util, "EighthExerciseInput.txt");
 		eighth.solveFirstPart();
 		eighth.solveSecondPart();
 
